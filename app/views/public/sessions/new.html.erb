@@ -1,0 +1,39 @@
+<div class="container text-center">
+  <div class="d-inline-block text-left">
+<div class="m-5">
+  <div class="mb-4">
+    <h4 class="bg-light col-4 text-center" style="font-size: 30px;">ログイン</h4>
+    </div>
+  <div class="">
+
+<div class="mb-5">
+<p class="bg-light col-7 text-center mb-4">会員の方はこちらからログイン</p>
+
+<div class="" style="width: 500px;">
+<%= form_with model: @customer, url: session_path(resource_name), local: true do |f| %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div class="field row mb-3">
+   <%= f.label :メールアドレス,class: "col-sm-4 col-form-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-8 p-0" %>
+  </div>
+
+  <div class="field  row mb-3">
+    <%= f.label :パスワード,class: "col-sm-4 col-form-label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-8 p-0"%>
+  </div>
+
+  <div class="actions text-center mb-4 mt-4">
+    <%= f.submit "ログイン", class:"btn btn-primary col-4"%>
+  </div>
+<% end %>
+</div>
+</div>
+<div class="">
+<p class="bg-light col-6 text-center mb-4">会員登録がお済みでない方</p>
+<p class="text-center"><%= render "public/shared/links" %> から新規登録を行ってください</p>
+</div>
+</div>
+</div>
+</div>
+</div>
