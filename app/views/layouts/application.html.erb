@@ -11,7 +11,12 @@
   </head>
 
   <body>
-    <header><%= render 'layouts/before_login_header' %></header>
+    <header>
+      <% if customer_signed_in? %>
+      <%= render 'layouts/after_login_header' %></header>
+      <% else%>
+      <%= render 'layouts/before_login_header' %></header>
+      <% end %>
     <%= yield %>
   </body>
 </html>

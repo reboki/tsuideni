@@ -3,9 +3,10 @@
 </div>
 <nav class="original-font">
   <ul>
-    <li><%= link_to 'マイページ',root_path%></li>
-    <li><%= link_to '配達をする',about_path%></li>
-    <li><%= link_to '注文履歴',new_customer_registration_path%></li>
-    <li><%= link_to 'ログアウト',new_customer_session_path%></li>
+    <li><%= link_to '配達を頼む',deliverys_path%></li>
+    <li><%= link_to '配達をする',delivery_path(current_customer)%></li>
+    <li><%= link_to '注文履歴',orders_path%></li>
+    <li><%= link_to 'マイページ',my_page_path%></li>
+    <li> <%= link_to 'ログアウト',destroy_customer_session_path, method: :delete%></li>
   </ul>
 </nav>
