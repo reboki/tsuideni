@@ -22,4 +22,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   end
 
+  resources :maps, only: [:index]
+
 end
