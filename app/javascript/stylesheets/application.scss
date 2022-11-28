@@ -64,3 +64,20 @@ border-top: 5px solid #F8E750;
 .original-font {
   font-family:'myfont';
 }
+
+th,td {
+    border: solid 1px;              /* 枠線指定 */
+    padding: 20px;
+}
+
+table {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}
+
+.space {
+  padding: 0 10px 0 200px;
+}
+
+.tables {
+margin-top:10rem;
+margin-left:10rem;}

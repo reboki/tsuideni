@@ -1,8 +1,30 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
 
-  def show
+
+  def index
     @customer = current_customer
+  end
+
+   def show
+    @customer=Customer.find(params[:id])
+    @currentUserEntry=Entry.where(customer_id: current_customer.id)
+    @userEntry=Entry.where(customer_id: @customer.id)
+    unless @customer.id == current_customer.id
+      @currentUserEntry.each do |cu|
+        @userEntry.each do |u|
+          if cu.room_id == u.room_id then
+            @isRoom = true
+            @roomId = cu.room_id
+          end
+        end
+      end
+      if @isRoom
+      else
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
 
   def edit

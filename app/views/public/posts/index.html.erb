@@ -1,6 +1,6 @@
 <div class="container">
 <div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
-<h3>配達一覧</h3>
+<h3>お店一覧</h3>
 <div style="margin-bottom: 2rem;"></div>
 <table class="table">
   <thead>
@@ -15,12 +15,9 @@
     <tr>
         <td><%= d.place%></td>
         <td><%= d.section %></td>
-        <td><%= link_to '詳細', delivery_path(d.id),class: "btn btn-primary" %></td>
+        <td><%= link_to '詳細', post_path(d.id),class: "btn btn-primary" %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to new_delivery_path, class: "btn btn-primary col-2" do %>
-ついでに配達する
-  <% end %>
 </div>

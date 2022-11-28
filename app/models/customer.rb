@@ -4,6 +4,11 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :deliveries
+  #has_many :posts
+
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :kana_last_name, presence: true

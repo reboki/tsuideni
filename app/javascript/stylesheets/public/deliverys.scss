@@ -1,0 +1,10 @@
+// Place all the styles related to the public/deliverys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+th,td {
+    border: solid 1px;              /* 枠線指定 */
+}
+
+table {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}
