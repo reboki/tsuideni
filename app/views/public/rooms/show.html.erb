@@ -4,7 +4,6 @@
 <div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
 <div class="col-2"></div>
   <div class="chat col-7">
-    <%= notice %>
     <% if @messages.present? %>
       <% @messages.each do |m| %>
       <% if m.customer_id == current_customer.id %>
