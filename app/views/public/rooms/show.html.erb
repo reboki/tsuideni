@@ -1,30 +1,45 @@
-<div class="chats container">
+<div class="chats container text-center">
 <div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
-  <div class="chat">
+<div class="row text-center">
+<div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
+<div class="col-2"></div>
+  <div class="chat col-7">
+    <%= notice %>
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-        <div class="chat-box">
+      <% if m.customer_id == current_customer.id %>
+        <div class="chat-box" style="text-align: right;">
           <div style="">
        <strong><%= m.customer.username %></strong>
           </div>
-
-          <div class="chat-hukidashi" style="
-          padding: 0.5em 1em;
-    　　　　margin: 2em 0;
-    　　　　font-weight: bold;
-    　　　　border: solid 3px #000000;"> <%= m.message %><br>
+          <div class="chat-hukidashi" style="padding: 0.5em 1em;"> <%= m.message %><br>
           <div style="font-size:12px">  <%= m.created_at.strftime("%Y-%m-%d %H:%M")%></div>
           </div>
         </div>
+        <% else %>
+          <div class="chat-box" style="text-align: left;">
+          <div style="">
+       <strong><%= m.customer.username %></strong>
+          </div>
+          <div class="chat-hukidashi" style="padding: 0.5em 1em;"> <%= m.message %><br>
+          <div style="font-size:12px">  <%= m.created_at.strftime("%Y-%m-%d %H:%M")%></div>
+          </div>
+        </div>
+        <% end %>
       <% end %>
     <% end %>
-  </div>
+
   <div style="margin-bottom: 3rem;"></div>
   <div class="posts">
-    <%= form_with model: @message, url: messages_path, mathod: :post do |f| %>
+    <%= form_with model: @message, url: messages_path, mathod: :post, remote: true do |f| %>
       <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
         <%= f.hidden_field :room_id, value: params[:id] %>
           <%= f.submit "投稿",class: 'form-submit　btn btn-secondary'%>
+          <div style="margin-top: 2rem;">
+          <%= link_to '配達を完了する', @room, method: :delete, data: { confirm: '配達を完了しますか？' }, class: "btn btn btn-info col-3"%></div>
     <% end %>
+    </div>
   </div>
+</div>
+<div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
 </div>

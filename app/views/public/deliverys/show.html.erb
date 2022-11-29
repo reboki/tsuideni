@@ -7,35 +7,5 @@
 <p>配達可能個数：<%=@delivery.quantity%></p>
 <%= link_to 'この配達を削除する', @delivery, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn btn-danger col-2"%>
 <div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
-<h3>配達依頼一覧</h3>
 <div style="margin-bottom: 2rem;"></div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ユーザー名</th>
-      <th scope="col">連絡する</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @post.each do |d| %>
-    <tr>
-      <td><%=d.id %></td>
-      <td>
-  <% unless @customer.id == current_customer.id %>
-     <% if @isRoom == true %>
-    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary">チャットへ</a>
-  <% else %>
-    <%= form_with model:@room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :customer_id, value: @customer.id %>
-      <% end %>
-      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-    <% end %>
-  <% end %>
-<% end %>
-      </td>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
 </div>

@@ -1,11 +1,16 @@
 class Public::MessagesController < ApplicationController
   def create
-    pp '-------'
-    pp Entry.where(customer_id: current_customer.id, room_id: params[:message][:room_id])
     if Entry.where(customer_id: current_customer.id, room_id: params[:message][:room_id]).present?
       @message = Message.create(message_params)
+
+      # 新規作成された@messageに紐づくroomを@roomに格納する
+      @room = @message.room
+      # 本引数を２つ持たせてcreate_notification_dmメソッドを実行
+      @room.create_notification_dm(current_customer, @message.id)
+      # (ここまで)
+
     else
-      flash[:alert] = "メッセージ送信に失敗しました。"
+      flash[:notice] = "メッセージ送信に失敗しました。"
     end
     redirect_to room_path(params[:message][:room_id])
   end

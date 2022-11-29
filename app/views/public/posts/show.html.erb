@@ -13,12 +13,9 @@
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :customer_id, value: @customer.id %>
       <% end %>
-      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+      <%= f.submit "チャットを始める", class:"btn btn-primary user-show-chat"%>
     <% end %>
   <% end %>
-<% end %>
-<%= form_with model:@post do |f| %>
-<%= f.submit "依頼する", class:"btn btn-primary btn-lgt"%>
 <% end %>
 <div style="margin-bottom: 5rem; margin-top: 2rem;"></div>
 </div>

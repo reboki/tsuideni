@@ -1,10 +1,11 @@
-<div class="heads original-font">
+<div class="heads original-font text-center">
 　ついでに
 </div>
 <nav class="original-font">
   <ul>
     <li><%= link_to '配達を頼む',posts_path%></li>
     <li><%= link_to '配達をする',deliverys_path%></li>
+    <li><%= link_to '通知',notifications_path%></li>
     <li><%= link_to 'マイページ',my_page_path%></li>
     <li> <%= link_to 'ログアウト',destroy_customer_session_path, method: :delete%></li>
   </ul>

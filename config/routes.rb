@@ -18,8 +18,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :orders
     resources :posts, only: [:index, :show, :create]
     resources :messages, only: [:create]
-    resources :rooms, only: [:create,:show]
+    resources :rooms, only: [:create,:show,:destroy]
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+    resources :notifications, only: [:index]
   end
 
   namespace :admin do
