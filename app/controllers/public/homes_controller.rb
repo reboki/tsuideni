@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def guest_sign_in
-    user = Customer.find_or_create_by!(email: 'apple@gmail.com') do |user|
+    user = Customer.find_or_create_by!(email: 'rebobo@gail.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       # user.skip_confirmation!  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
