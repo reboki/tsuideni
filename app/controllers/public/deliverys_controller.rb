@@ -35,7 +35,7 @@ class Public::DeliverysController < ApplicationController
     @delivery = Delivery.new(delivery_params)
     @delivery.customer_id = current_customer.id
     if @delivery.save
-      Post.create(:address => current_customer.address)
+      #Post.create(:address => current_customer.address)
       redirect_to deliverys_path
     else
       render :new
