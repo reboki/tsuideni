@@ -6,19 +6,22 @@ class ApplicationController < ActionController::Base
    # request.fullpath.include?("/admin")
   #end
 
-  def after_sign_in_path_for(resource)
-    #case resource
-    #when Admin
-     # admin_root_path
-    #when Customer
-      posts_path
+  def after_sign_up_path_for(resource)
+    posts_path
   end
-  #end
+
+  def after_sign_in_path_for(resource)
+    posts_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name,:first_name,:kana_last_name,:kana_first_name,
-    :zipcode, :address, :phone_number, :email, :password,:delete_flag, :username])
+    :zipcode, :address, :phone_number, :email, :password, :delete_flag, :username])
   end
 end
